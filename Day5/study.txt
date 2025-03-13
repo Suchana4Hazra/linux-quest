@@ -1,0 +1,15 @@
+//Memory Shared among Independent Process
+
+A Shared Memory segment can be accessed (read, write, control) by many processes.
+In previous week's assignments shared memory segment, say, M,  was "created" by a process, say, P, which then forked and its child processes (say, C1, C2, ..., Cn) too used that shared memory segment. That is, from programmer's  point of view, 
+
+    P made a call like "shmid =  shmget(IPC_PRIVATE, sizeof(int), IPC_CREAT | 0777);" which created a shared memory segment and returned the associated id which then is saved in the variable shmid.
+    P then forks to create C1, C2, ..., Cn.
+    Since, fork() creates a child process which is an exact copy of the parent (as it is just before fork()) , each of C1, C2, ..., Cn has its own copy of the variable shmid containing the id associated with the shared memory segment (created by P) and using that id it can shmat() the shared memory segment  and then use it. 
+
+In the most general situation, a shared memory segment may have to be used by a number of processes (say, P1, P2, ..., Pn) executing different programs run by different users at different times. Getting access to the same shared memory segment is not as straight-forward for P1, P2, ..., Pn, as it was in the previous case. P1, P2, ..., Pn may not have any scope to know the id associated with the shared memory segment. Here comes the second version of how "int shmget(key_t key, size_t size, int shmflg);" can be called to get the id of the desired shared memory segment.
+
+    Each of the processes P1, P2, ..., Pn will 1st make a call to "key_t ftok(const char *pathname, int proj_id); to get a common key. For example, if each of P1, P2, ..., Pn processes calls "shmkey = ftok("/home/manas/projects", 1);", ftok() will return the same key, to be stored in shmkey. 
+    This key them may be passed to shmget(), that is, "shmid = shmget(shmkey, n*sizeof(int), IPC_CREAT | 0666);" which will (create, if necessary, and) return the id associated the same shared memory segment.
+    Please note that the file  "/home/manas/projects" must exist and be accessible by the processes P1, P2, ..., Pn.
+    Once each of the processes P1, P2, ..., Pn gets the id for the shared memory segment, they can attach the segment in its process space (by calling shmat() on the id) and use it.

@@ -1,3 +1,16 @@
+/*
+
+Let there be a (parent) process which goes on putting a random (integer) number  in a shared variable, say n,  in a regular interval. There is a child process that goes on putting the factorial of the integer (that it finds in n) back into the shared variable (n), in regular intervals. The parent process prints the factorial that it receives from the child process. Device your own mechanism(s) so that the child process "knows" that a new number has been put in n  by the parent process and the parent process "knows" that a the factorial of a number has been put in n  by the child  process,
+
+Write a complete C program to implement the above. The program should make arrangements for releasing shared memory that has been created during execution (as demonstrated in the sample program).
+
+The processes must print meaningful output so that the user understands what is happening.
+
+Note:
+
+    For generation for random numbers you may use the "rand()" function. "man 3 rand" will show you the manual.
+    Since the parent and child processes run independently at their own speed, there may be inconsistency in the results printed by them. For example, the parent process may manage to put numbers in a  faster manner than the child process can handle. You may even try to demonstrate that such inconsistency appears in the output. How to avoid such inconsistencies will be discussed later. 
+    */
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>

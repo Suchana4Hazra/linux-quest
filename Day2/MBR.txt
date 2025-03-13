@@ -1,0 +1,17 @@
+Creation and Testing of MBR (Master Boot Record) program for IBM PC Compatible Machines
+
+Install Oracle Virtualbox on your laptop (at the top of its running OS -  MS Windows and/or Linux)! - Supposedly you already have done this.
+Install Linux on your Laptop, either as a Virtual Machine or as a native OS. - Supposedly you have already done it as a part of previous laboratory class.
+
+Create a Virtual Machine on your Virtualbox. Install DOS as its OS. Keep applications like MASM, LINK, etc. which are compatible with your DOS. (You may use resources at https://cs.iiests.ac.in/Download/8086 )! - Supposedly you already have done this during your Microprocessor Course.
+The Linux (of step 2 above) and the DOS VM (of step 3 above)  should be your development environment for today's assignment(s).
+Create another VM (say, Test VM) on your Oracle Virtual Box. This VM should be used for experimentation with MBRs in today's class.
+You are aware of the idea of Master Boot Record (MBR). From the documents available in the Internet, study what is the MBR (Master Boot Record) for an IBM PC compatible machines.
+
+In short, this MBR is 512 bytes large and is located in the first sector of a disk (including floppy diskette).
+Start offset 	Length 	Contents
+0 	440 bytes 	Executable code
+440 	4 bytes 	Disk MBR signature
+444 	2 bytes 	Unused
+446 	64 bytes 	Partition table
+510 	2 bytes 	Boot signature (55 AA)

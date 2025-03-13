@@ -1,3 +1,9 @@
+/*Write a complete C program that reads for an array of n numbers (value of n is given by the user). The program then creates n child processes P1, P2, ..., Pn such that Pi, 1 ≤  i ≤  n, computes the ith largest number from the array and passes it to the parent process (say, P) through "exit(status)" system call and terminates. ["man 3 exit" shows the manual page.] 
+
+Note that through wait() or waitpid() systems calls, the parent process may get the value of the status with which a child process has exited with.
+
+In this case, P receives ith largest number from Pi, 1 ≤  i ≤  n and builds a sorted array.   P, then, prints the numbers in descending order from that sorted array.
+*/
 #include<stdio.h>
 #include<unistd.h>
 #include<stdlib.h>

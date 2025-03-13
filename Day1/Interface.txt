@@ -1,0 +1,10 @@
+The Priliminaries about different Programming Interfaces
+
+
+
+We are aware of the following facts.
+
+    The Hardware platform that we procure as a computer comes with BIOS (Firmware) bundled with the hardware.
+    The Firmware provides an programming interface that can be accessed through Software Interrupts
+    The Operating System (more specifically the OS Kernel) makes use of this Firmware Interface and provides a System Call Interface to be used by programmers for interacting with the Kernel. Please note that this System Call Interface, in general, is in terms of software interrupts.
+    The operating also provides wrapper functions for these system call interface. That is, once we have these wrapper functions, system call can be invoked from within our programs just like other library functions (only difference that we should remember is that they are implemented/defined within the Kernel).

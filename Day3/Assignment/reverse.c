@@ -1,3 +1,9 @@
+/*Write a complete C program that reads n strings as command line arguments.
+ That is, uses "int argc" and "char *argv[]" to read S1, S2, ..., Sn, 
+ when the program is executed as "./a.out S1 S2 ... Sn". 
+ The program then creates n child processes P1, P2, ..., Pn such that Pi, 1 ≤  i ≤  n, 
+ reverses the string Si and prints the reversed string.*/
+ 
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>

@@ -1,3 +1,6 @@
+/*Write a complete C program that reads for an array of n numbers (value of n is given by the user). 
+The program then creates n child processes P1, P2, ..., Pn such that Pi, 1 ≤  i ≤  n, 
+computes and prints the ith largest number from the array.*/
 #include<stdio.h>
 #include<unistd.h>
 #include<stdlib.h>

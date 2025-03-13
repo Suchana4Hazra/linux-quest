@@ -1,0 +1,12 @@
+Let us see what are the different types of communication that we can conceive among processes.
+
+Functionally, the communication can be of following types.
+
+    Communication through common variables: That is, 2 or more processes will have common variables. Value assigned to such a common variable by a process can be read/altered  by other processes.
+    One process produces  data and another consumes it.
+    Processes use the same file
+    Transfer of messages
+    One Process sends a Signal to another process
+    Synchronization of execution of one process from within another process. That is, from within a process to control which part of another process can (or cannot) execute and when.
+
+
